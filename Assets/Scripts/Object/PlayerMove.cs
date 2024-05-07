@@ -2,34 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : AttackableObject
 {
     float currentCoolTime;
     bool Attacking;
-    float curHP;
 
     [SerializeField]
     public BoxCollider2D BC;
     public Rigidbody2D RB;
     public SpriteRenderer SR;
 
-    // Player's Movement Speed
+    // 이동속도
+    // 이동속도는 변경하지 않음.
     public float SpeedX;                    // x축 이동속도
     public float SpeedY;                    // y축 이동속도
     /////////////////////
 
 
-    // Player's Stats
-    public int Level;                       // 레벨
-    public float HP;                        // 최대 체력
-    public float Damage;                    // 공격력
-    public float Defense;                   // 방어력
+    // 전투 스텟
+    // 체력, 공격력, 방어력은 상위 클래스로 이전
+    // 기본 스텟은 레벨로 결정하며, 보조 스텟으로 조정됨.
+    // 장비를 통해 직접 스텟을 상수적으로 조정함.
+                      
     public float AttackCoolTime;            // 공격 속도(쿨타임)
     public float Lethality;                 // 관통력% (0~1)
 
     public float CriticalDamage;            // 치명타 데미지
     public float CriticalProbability;       // 치명타 확률
-    /////////////////////
+                                            /////////////////////
+
+    // 보조 스텟
+    // 0~100 으로 결정됨. / 0미만, 100 초과로 스텟이 증가하지 않음.
+    // 게임이 지속될수록 감소하며, 소모성 아이템과 장비를 이용해 수치를 조정할 수 있음.
+
+    public int fatigue;                     // 피로도가 높을수록 받는 데미지가 증가함. (방어력 감소)
+    public int concentration;               // 집중력이 높을수록 획득하는 자원이 증가함. (아이템 및 경험치 획득 시, 비율 결정)
+    public int sociability;                 // 사교성이 높을수록 주는 데미지가 증가함. (관통력, 치명타 계수 증가)
+    public int health;                      // 체력이 높을수록 최대 HP가 증가함. (HP 증가)
 
     // 공격 범위와 위치를 설정하기 위한 벡터입니다.
     public Vector2 AttackRange;
@@ -40,7 +49,6 @@ public class PlayerMove : MonoBehaviour
     {
         Attacking = false;
         currentCoolTime = AttackCoolTime;
-        curHP = HP;
     }
 
     // Update is called once per frame
@@ -70,7 +78,8 @@ public class PlayerMove : MonoBehaviour
         // 0.5 초가 경과하면 다시 움직임을 허용합니다.
 
         Attacking = true;
-        yield return new WaitForSeconds(0.5f);
+        RB.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(0.2f);
 
         Attacking = false;
         yield return null;
