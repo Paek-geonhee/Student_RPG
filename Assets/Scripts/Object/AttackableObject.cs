@@ -13,7 +13,11 @@ public class AttackableObject : MonoBehaviour
 
     public bool NoDamage;
 
-
+    protected void Init()
+    {
+        curHP = HP;
+        NoDamage = false;
+    }
     // Start is called before the first frame update
     void Start()
     {

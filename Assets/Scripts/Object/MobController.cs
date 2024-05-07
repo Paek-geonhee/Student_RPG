@@ -10,13 +10,12 @@ public class MobController : AttackableObject
     public Rigidbody2D RB;
     public SpriteRenderer SR;
 
-    
 
+   
     // Start is called before the first frame update
     void Start()
     {
-        curHP = HP;
-        NoDamage = false;
+
     }
 
     // Update is called once per frame

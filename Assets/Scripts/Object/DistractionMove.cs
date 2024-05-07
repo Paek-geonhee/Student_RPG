@@ -8,17 +8,19 @@ using UnityEngine;
 // 만약 이 몹과 충돌하거나 공격한다면 집중력이 떨어져요.
 
 // 시간이 지나면 사라집니다.
-public class DistractionMove : MonoBehaviour
+public class DistractionMove : MobController
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
+        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // 해당오브젝트는 10초 간 아무 위치로 이동합니다.
+        // 10초가 지나면 사라집니다.
     }
 }
