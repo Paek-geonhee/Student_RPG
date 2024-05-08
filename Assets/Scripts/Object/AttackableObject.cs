@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AttackableObject : MonoBehaviour
 {
+    [Header("Flags")]
+    public bool Attacking;
+    public bool NoDamage;
+
+    [Header("Main Stats")]
     public int Level;                       // 레벨
     public float HP;                        // 최대 체력
     public float Damage;                    // 공격력
@@ -11,7 +16,8 @@ public class AttackableObject : MonoBehaviour
 
     protected float curHP;
 
-    public bool NoDamage;
+
+    
 
     protected void Init()
     {

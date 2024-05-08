@@ -26,11 +26,11 @@ public class MobController : AttackableObject
 
     IEnumerator FadeAway() {
         NoDamage = true;
-        SR.color = new Color(1f, 1f, 1f, 0.5f);
+        SR.color = new Color(SR.color.r, SR.color.g, SR.color.b, 0.5f);
         yield return new WaitForSeconds(0.5f);
         
 
-        SR.color = new Color(1f, 1f, 1f, 1f);
+        SR.color = new Color(SR.color.r, SR.color.g, SR.color.b, 1f);
         NoDamage = false;
         yield return null;
     }

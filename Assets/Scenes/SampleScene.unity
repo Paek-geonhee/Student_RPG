@@ -1322,34 +1322,14 @@ GameObject:
   - component: {fileID: 1077061900}
   - component: {fileID: 1077061899}
   - component: {fileID: 1077061898}
-  - component: {fileID: 1077061897}
+  - component: {fileID: 1077061902}
   m_Layer: 6
-  m_Name: Mob (1)
+  m_Name: Drows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1077061897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077061896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4a9918c1ded144c85fb26487b275f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: 0
-  HP: 10
-  Damage: 0
-  Defense: 4
-  NoDamage: 0
-  BC: {fileID: 1077061898}
-  RB: {fileID: 1077061899}
-  SR: {fileID: 1077061900}
 --- !u!61 &1077061898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1464,7 +1444,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6084906, g: 1, b: 0.99649084, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1489,6 +1469,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077061902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077061896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa29ba32a7ab4f498438e7579d90648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacking: 0
+  NoDamage: 0
+  Level: 1
+  HP: 20
+  Damage: 0
+  Defense: 1
+  BC: {fileID: 1077061898}
+  RB: {fileID: 1077061899}
+  SR: {fileID: 1077061900}
 --- !u!1 &1081041892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,34 +1754,14 @@ GameObject:
   - component: {fileID: 1206639447}
   - component: {fileID: 1206639446}
   - component: {fileID: 1206639445}
-  - component: {fileID: 1206639444}
+  - component: {fileID: 1206639449}
   m_Layer: 6
-  m_Name: Mob (2)
+  m_Name: Information
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1206639444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206639443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4a9918c1ded144c85fb26487b275f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: 0
-  HP: 10
-  Damage: 0
-  Defense: 4
-  NoDamage: 0
-  BC: {fileID: 1206639445}
-  RB: {fileID: 1206639446}
-  SR: {fileID: 1206639447}
 --- !u!61 &1206639445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1920,6 +1901,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206639449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206639443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f966f7de11209e9468061529cebf849b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacking: 0
+  NoDamage: 0
+  Level: 1
+  HP: 30
+  Damage: 4
+  Defense: 4
+  BC: {fileID: 1206639445}
+  RB: {fileID: 1206639446}
+  SR: {fileID: 1206639447}
+  expDrop: 0
 --- !u!1 &1315460621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,16 +2903,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cca52d36dcde064399b9a8b782fd5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attacking: 0
+  NoDamage: 0
   Level: 1
   HP: 50
   Damage: 10
   Defense: 10
-  NoDamage: 0
-  BC: {fileID: 1837771174}
-  RB: {fileID: 1837771172}
-  SR: {fileID: 1837771175}
-  SpeedX: 5
-  SpeedY: 5
+  Speed: {x: 5, y: 5}
   AttackCoolTime: 1
   Lethality: 0
   CriticalDamage: 1.5
@@ -2918,7 +2918,11 @@ MonoBehaviour:
   concentration: 0
   sociability: 0
   health: 0
+  caffeine: 0
   AttackRange: {x: 1, y: 0}
+  BC: {fileID: 1837771174}
+  RB: {fileID: 1837771172}
+  SR: {fileID: 1837771175}
 --- !u!61 &1837771174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3228,6 +3232,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1924537794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924537797}
+  - component: {fileID: 1924537796}
+  - component: {fileID: 1924537795}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1924537795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924537794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c433bbb4b7ffe48aa3fdf1c0e00d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1924537796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924537794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499943712d4b57a4495dd79c0c353d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1924537797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924537794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29005617, y: -0.68953973, z: -0.4468111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047885220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,34 +3301,14 @@ GameObject:
   - component: {fileID: 2047885224}
   - component: {fileID: 2047885223}
   - component: {fileID: 2047885222}
-  - component: {fileID: 2047885221}
+  - component: {fileID: 2047885226}
   m_Layer: 6
-  m_Name: Mob
+  m_Name: Distraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2047885221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047885220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4a9918c1ded144c85fb26487b275f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: 0
-  HP: 10
-  Damage: 0
-  Defense: 4
-  NoDamage: 0
-  BC: {fileID: 2047885222}
-  RB: {fileID: 2047885223}
-  SR: {fileID: 2047885224}
 --- !u!61 &2047885222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3382,7 +3423,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3407,6 +3448,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047885226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047885220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1394cd23f61675d43992dd4e709a3cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacking: 0
+  NoDamage: 0
+  Level: 1
+  HP: 10
+  Damage: 0
+  Defense: 2
+  BC: {fileID: 2047885222}
+  RB: {fileID: 2047885223}
+  SR: {fileID: 2047885224}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3420,3 +3482,4 @@ SceneRoots:
   - {fileID: 2047885225}
   - {fileID: 1077061901}
   - {fileID: 1206639448}
+  - {fileID: 1924537797}

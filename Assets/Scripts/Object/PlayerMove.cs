@@ -1,22 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 // 플레이어는 메인 스테이지에 있는 경우 지속적으로 curHP가 감소하며, 만약 curHP가 0 이하가 되는 경우 게임이 종료됩니다.
 public class PlayerMove : AttackableObject
 {
-    float currentCoolTime;
-    bool Attacking;
+    
+    
 
-    [SerializeField]
-    public BoxCollider2D BC;
-    public Rigidbody2D RB;
-    public SpriteRenderer SR;
+    float currentCoolTime;
 
     // 이동속도
     // 이동속도는 변경하지 않음.
-    public float SpeedX;                    // x축 이동속도
-    public float SpeedY;                    // y축 이동속도
+    public Vector2 Speed;                   // 이동속도
     /////////////////////
 
 
@@ -35,7 +33,7 @@ public class PlayerMove : AttackableObject
     // 보조 스텟
     // 0~100 으로 결정됨. / 0미만, 100 초과로 스텟이 증가하지 않음.
     // 게임이 지속될수록 감소하며, 소모성 아이템과 장비를 이용해 수치를 조정할 수 있음.
-
+    [Header("Sub Stats")]
     public int fatigue;                     // 피로도가 높을수록 받는 데미지가 증가함. (방어력 감소) / 커피를 마시면 증가합니다.
     public int concentration;               // 집중력이 높을수록 획득하는 자원이 증가함. (아이템 및 경험치 획득 시, 비율 결정)
     public int sociability;                 // 사교성이 높을수록 주는 데미지가 증가함. (관통력, 치명타 계수 증가)
@@ -45,7 +43,14 @@ public class PlayerMove : AttackableObject
     // 공격 범위와 위치를 설정하기 위한 벡터입니다.
     public Vector2 AttackRange;
 
-    
+   
+
+    [Header("Components")]
+    [SerializeField]
+    public BoxCollider2D BC;
+    public Rigidbody2D RB;
+    public SpriteRenderer SR;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +78,7 @@ public class PlayerMove : AttackableObject
 
         SR.flipX = axis_x == 1 ? false : axis_x == -1 ? true : SR.flipX;
 
-        RB.velocity = new Vector2 (axis_x*SpeedX*dash, axis_y*SpeedY* dash);
+        RB.velocity = new Vector2 (axis_x*Speed.x*dash, axis_y*Speed.y* dash);
     }
 
     IEnumerator MoveDelay() {
